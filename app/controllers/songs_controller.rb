@@ -14,7 +14,11 @@ class SongsController < ApplicationController
   end
 
   def index
-    @songs = Song.all
+    if params[:buscar].present?
+      @songs = Song.all #.genres.where(name: params[:buscar])
+    else
+      @songs = Song.all
+    end
   end
 
   # GET /songs/1
