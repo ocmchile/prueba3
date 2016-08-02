@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
   resources :user_songs
   # devise_for :users
-  resources :songs
+  # resources :songs
+  resources :songs do
+    member do
+      get :addsong
+    end
+  end
   resources :genres
+
+  # resources :user_songs do
+  #   collection do
+  #     post 'add_songs'
+  #   end
+  # end
 
   Rails.application.routes.draw do
     devise_for :users, controllers: {

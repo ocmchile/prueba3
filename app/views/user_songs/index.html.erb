@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing User Songs</h1>
+<h1>Mis canciones preferidas</h1>
 
 <table>
   <thead>
@@ -16,8 +16,8 @@
     <% @user_songs.each do |user_song| %>
       <tr>
         <td><%= user_song.position %></td>
-        <td><%= user_song.song %></td>
-        <td><%= user_song.user %></td>
+        <td><%= user_song.song.name %></td>
+        <td><%= user_song.user.name %></td>
         <td><%= link_to 'Show', user_song %></td>
         <td><%= link_to 'Edit', edit_user_song_path(user_song) %></td>
         <td><%= link_to 'Destroy', user_song, method: :delete, data: { confirm: 'Are you sure?' } %></td>

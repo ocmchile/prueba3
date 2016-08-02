@@ -3,6 +3,16 @@ class SongsController < ApplicationController
 
   # GET /songs
   # GET /songs.json
+
+  def addsong
+    puts params
+    @us = UserSong.new
+    @us.song_id = params[:id]
+    @us.user = current_user
+    @us.save!
+    redirect_to songs_path
+  end
+
   def index
     @songs = Song.all
   end
